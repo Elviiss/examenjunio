@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="row">
-        {{#each pizza}}
+        {{#each pizzas}}
             <div class="col-md-3">
                 <div class="card tex-center">
                     <div class="card-body">
@@ -10,8 +10,8 @@
                                 {{title}}
                             </h3>
                             <p class="m-2">{{ description }}</p>
-                            <a href="/links/megusta/{{id}}" class="btn btn-success">Like</a>
-                            <a href="/links/nomegusta/{{id}}" class="btn btn-danger">Dislike</a>
+                            <a href="/links/delete/{{id}}" class="btn btn-outline-danger">Borrar</a>
+                            <a href="/links/edit/{{id}}" class="btn btn-outline-dark">Editar Pizza</a>
                         </a>
                     </div>
                 </div>

@@ -30,6 +30,13 @@ router.get('/links/list', async (req, res, next) => {
   
 });
 
+router.get('/links/cambios', async (req, res, next) => {
+  const [ pizzas ] = await pool.query('SELECT * FROM pizza ')
+  console.log(pizzas)
+  res.render('links/cambios', { pizzas })
+  
+});
+
 router.get('/links/delete/:id', async (req, res) => {
   const { id } = req.params
   await pool.query('DELETE FROM pizza WHERE id = ?', [id])
@@ -53,6 +60,30 @@ router.post('/links/edit/:id', async (req, res) => {
   }
   await pool.query('UPDATE pizza SET ? WHERE id = ?', [newpizza, id])
   res.redirect('/links/list')
+})
+
+router.get('/links/megusta/:id', async (req, res) => {
+
+  const { id } = req.params
+  await pool.query('UPDATE pizza SET likes = likes + 1 WHERE id = ?', [id])
+  res.redirect('/links/list')
+})
+
+router.get('/links/nomegusta/:id', async (req, res) => {
+
+  const { id } = req.params
+  await pool.query('UPDATE pizza SET dislikes = dislikes + 1 WHERE id = ?', [id])
+  res.redirect('/links/list')
+})
+
+router.get('/links/masvotadas', async (req, res) => {
+  const [ pizza ] = await pool.query('SELECT * FROM pizza ORDER BY likes DESC')
+  res.render('links/top', {pizza})
+})
+
+router.get('/links/menosvotadas', async (req, res) => {
+  const [ pizza ] = await pool.query('SELECT * FROM pizza ORDER BY dislikes DESC')
+  res.render('links/top', {pizza})
 })
 
 module.exports = router;

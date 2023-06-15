@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  background-color: #bb6621;
+  background-color: #9A94BC;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
 }
@@ -8,9 +8,16 @@ body {
 img{
   padding: 5px;
   border-radius: 15px;
+  width: 200px;
+
 }
 
 a {
   color: #020e74;
   font-family: 'Pacifico', cursive;
 }
+
+.card-body{
+  background-color: #CDF7F6;
+}
+
