@@ -36,4 +36,23 @@ router.get('/links/delete/:id', async (req, res) => {
   res.redirect('/links/list')
 });
 
+router.get('/links/edit/:id', async (req, res) => {
+
+  const { id } = req.params
+  const [ pizza ] = await pool.query('SELECT * FROM pizza WHERE id = ?', [id])
+  res.render('links/edit', {pizza:pizza[0]})
+})
+
+router.post('/links/edit/:id', async (req, res) => {
+  const { id } = req.params
+  const { title, url, description} = req.body
+  const newpizza = {
+    title,
+    url,
+    description
+  }
+  await pool.query('UPDATE pizza SET ? WHERE id = ?', [newpizza, id])
+  res.redirect('/links/list')
+})
+
 module.exports = router;

@@ -3,7 +3,6 @@ body {
   background-color: #bb6621;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-  font-family: 'Roboto', sans-serif;
 }
 
 img{
@@ -13,4 +12,5 @@ img{
 
 a {
   color: #020e74;
+  font-family: 'Pacifico', cursive;
 }
