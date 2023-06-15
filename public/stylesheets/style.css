@@ -1,8 +1,11 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #9A94BC;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #020e74;
 }
