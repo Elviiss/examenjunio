@@ -30,4 +30,10 @@ router.get('/links/list', async (req, res, next) => {
   
 });
 
+router.get('/links/delete/:id', async (req, res) => {
+  const { id } = req.params
+  await pool.query('DELETE FROM pizza WHERE id = ?', [id])
+  res.redirect('/links/list')
+});
+
 module.exports = router;

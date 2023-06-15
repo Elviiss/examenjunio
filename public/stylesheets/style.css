@@ -1,9 +1,14 @@
 body {
   padding: 50px;
-  background-color: #9A94BC;
+  background-color: #bb6621;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
   font-family: 'Roboto', sans-serif;
+}
+
+img{
+  padding: 5px;
+  border-radius: 15px;
 }
 
 a {
