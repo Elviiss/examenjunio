@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS exajunio;
+CREATE DATABASE exajunio CHARSET utf8mb4;
+USE exajunio;
+
+
+CREATE TABLE cliente(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(60) NOT NULL,
+);
+
+
+
+CREATE TABLE pizza(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    url VARCHAR(255) NOT NULL,
+    description TEXT,
+    user_id INT UNSIGNED,
+    CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES cliente(id)
+);
